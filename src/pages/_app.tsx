@@ -1,6 +1,7 @@
-import '../styles/globals.css';
 import dynamic from 'next/dynamic';
 import type { AppProps } from 'next/app';
+import 'ress';
+import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
 	const SafeHydrate = dynamic(() => import('components/atoms/SafeHydrate'), {
