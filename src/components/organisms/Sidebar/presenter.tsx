@@ -2,6 +2,7 @@ import { cx, css } from '@emotion/css';
 import * as CheckBox from 'components/molecules/CheckBox';
 import Text from 'components/atoms/Text';
 import * as Button from 'components/molecules/Button';
+import LocalPicker from '../LocalPicker';
 import React, { FC } from 'react';
 import {
 	sidebarWrapper,
@@ -19,6 +20,8 @@ const SidebarPresenter: FC<SidebarPresenterType> = ({
 	handleCheckBoxClick,
 	allClear,
 	allSelect,
+	append,
+	remove,
 	prefectures,
 }: SidebarPresenterType) => {
 	return (
@@ -60,6 +63,14 @@ const SidebarPresenter: FC<SidebarPresenterType> = ({
 					/>
 				))}
 			</div>
+			<h2 className={css(prefectureH2)}>
+				<Text text='地方' fontWeight='bold' fontSize='1.2em' />
+			</h2>
+			<LocalPicker
+				checkedPrefectures={checkedPrefectures}
+				append={append}
+				remove={remove}
+			/>
 		</aside>
 	);
 };
