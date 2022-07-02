@@ -12,4 +12,6 @@ export type SidebarPresenterType = {
 	prefectures: string[];
 	checkedPrefectures: string[];
 	handleCheckBoxClick: (event: ChangeEvent<HTMLInputElement>) => void;
+	allSelect: () => void;
+	allClear: () => void;
 };

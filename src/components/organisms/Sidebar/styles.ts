@@ -47,3 +47,8 @@ export const heddingWrapper = `
 export const prefectureH2 = `
   font-size: 1em;
 `;
+
+export const prefectureAllSelecterButton = `
+  padding: 0.05em 0.5em;
+  margin: 0 0.2em;
+`;

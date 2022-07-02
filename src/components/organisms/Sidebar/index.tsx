@@ -18,6 +18,14 @@ const Sidebar: FC<SidebarType> = ({
 			handleCheckBoxClick={(event) =>
 				handleChangeCheckBoxState(actions.onChange(event))
 			}
+			allSelect={() =>
+				handleChangeCheckBoxState(
+					actions.setCheckedPrefectures(prefectureNames),
+				)
+			}
+			allClear={() =>
+				handleChangeCheckBoxState(actions.setCheckedPrefectures([]))
+			}
 			{...props}
 		/>
 	);
