@@ -17,6 +17,7 @@ export const paddingSize = {
 	},
 	sp: {
 		verySmall: '1.25vw',
+		normal1: '4vw',
 		normal2: '5vw',
 		normal3: '8vw',
 	},
