@@ -77,4 +77,64 @@ describe('oragnisms/Sidebarのテスト', () => {
 
 		expect(handleCheckBoxClickMock).toHaveBeenCalled();
 	});
+
+	it('全選択ボタンをクリック時に全てのチェックボックスがチェック状態になること', () => {
+		const handleCheckBoxClickMock = jest.fn();
+
+		act(() => {
+			render(
+				<Sidebar
+					className=''
+					prefectures={prefecturesMock}
+					handleChangeCheckBoxState={() => handleCheckBoxClickMock()}
+				/>,
+			);
+		});
+
+		const allButton = screen.getAllByRole('button')[1];
+
+		act(() => {
+			fireEvent.click(allButton);
+		});
+
+		const allCheckBox = screen.getAllByRole('checkbox', { hidden: true });
+		allCheckBox.map((checkbox) => {
+			expect(checkbox).toBeChecked();
+		});
+	});
+
+	it('全解除ボタンをクリック時に全てのチェックボックスが未チェック状態になること', () => {
+		const handleCheckBoxClickMock = jest.fn();
+
+		act(() => {
+			render(
+				<Sidebar
+					className=''
+					prefectures={prefecturesMock}
+					handleChangeCheckBoxState={() => handleCheckBoxClickMock()}
+				/>,
+			);
+		});
+
+		const allButton1 = screen.getAllByRole('button')[1];
+		const allButton2 = screen.getAllByRole('button')[0];
+
+		act(() => {
+			fireEvent.click(allButton1);
+		});
+
+		let allCheckBox = screen.getAllByRole('checkbox', { hidden: true });
+		allCheckBox.map((checkbox) => {
+			expect(checkbox).toBeChecked();
+		});
+
+		act(() => {
+			fireEvent.click(allButton2);
+		});
+
+		allCheckBox = screen.getAllByRole('checkbox', { hidden: true });
+		allCheckBox.map((checkbox) => {
+			expect(checkbox).not.toBeChecked();
+		});
+	});
 });
