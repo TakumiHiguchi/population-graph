@@ -12,6 +12,10 @@ module.exports = {
 		builder: '@storybook/builder-webpack5',
 	},
 	staticDirs: ['../public'],
+	env: (config) => ({
+		...config,
+		RESAS_ENDPOINT: 'https://opendata.resas-portal.go.jp',
+	}),
 	webpackFinal: async (config) => {
 		return {
 			...config,
@@ -23,6 +27,7 @@ module.exports = {
 					pages: path.resolve(__dirname, '../src/pages'),
 					hooks: path.resolve(__dirname, '../src/hooks'),
 					styles: path.resolve(__dirname, '../src/styles'),
+					lib: path.resolve(__dirname, '../src/lib'),
 				},
 			},
 		};
