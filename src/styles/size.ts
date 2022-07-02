@@ -50,3 +50,9 @@ export const layoutSize = {
 		headerHeight: '50px',
 	},
 };
+
+export const textSize = {
+	pc: '16px',
+	tab: '16px',
+	sp: '12px',
+};

@@ -1,4 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { PaddingWrapper } from 'components/atoms/StorybookPaddingWrapper';
 import { useCheckBox } from 'hooks/useInput';
 import { Primary as Component } from './index';
 
@@ -9,7 +10,11 @@ export default {
 
 const Template: ComponentStory<typeof Component> = (args) => {
 	const checkbox = useCheckBox(false, '', 'テスト', false);
-	return <Component {...args} {...checkbox} />;
+	return (
+		<PaddingWrapper>
+			<Component {...args} {...checkbox} />
+		</PaddingWrapper>
+	);
 };
 
 export const Primary = Template.bind({});

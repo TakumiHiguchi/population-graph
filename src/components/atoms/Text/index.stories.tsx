@@ -1,5 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
+import { PaddingWrapper } from '../StorybookPaddingWrapper';
 import Component from './index';
 
 export default {
@@ -8,7 +9,9 @@ export default {
 } as ComponentMeta<typeof Component>;
 
 const DefaultTemplate: ComponentStory<typeof Component> = (args) => (
-	<Component {...args} />
+	<PaddingWrapper>
+		<Component {...args} />
+	</PaddingWrapper>
 );
 
 export const Text = DefaultTemplate.bind({});
