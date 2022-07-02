@@ -53,12 +53,16 @@ export const usePrefecturesCheckBox = (prefectures: PrefectureType[]) => {
 		[checkedPrefectures],
 	);
 
-	return {
-		checkedPrefectures,
-		prefectureNames,
+	const actions = {
 		setCheckedPrefectures,
 		appendCheckedPrefectures,
 		removeCheckedPrefectures,
 		onChange,
+	};
+
+	return {
+		checkedPrefectures,
+		prefectureNames,
+		actions,
 	};
 };

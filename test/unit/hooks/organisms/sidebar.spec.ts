@@ -40,7 +40,7 @@ describe('useCheckBoxのテスト', () => {
 		);
 
 		act(() => {
-			result.current.setCheckedPrefectures(checkedPrefectures);
+			result.current.actions.setCheckedPrefectures(checkedPrefectures);
 		});
 
 		expect(result.current.checkedPrefectures).toEqual(checkedPrefectures);
@@ -55,7 +55,8 @@ describe('useCheckBoxのテスト', () => {
 		);
 
 		act(() => {
-			prefectureIds = result.current.setCheckedPrefectures(checkedPrefectures);
+			prefectureIds =
+				result.current.actions.setCheckedPrefectures(checkedPrefectures);
 		});
 
 		expect(prefectureIds).toEqual([3]);
@@ -74,7 +75,7 @@ describe('useCheckBoxのテスト', () => {
 		);
 
 		act(() => {
-			result.current.onChange(changeEventMock);
+			result.current.actions.onChange(changeEventMock);
 		});
 
 		expect(result.current.checkedPrefectures).toEqual(['岩手県']);
@@ -93,8 +94,8 @@ describe('useCheckBoxのテスト', () => {
 		);
 
 		act(() => {
-			result.current.setCheckedPrefectures(['岩手県']);
-			result.current.onChange(changeEventMock);
+			result.current.actions.setCheckedPrefectures(['岩手県']);
+			result.current.actions.onChange(changeEventMock);
 		});
 
 		expect(result.current.checkedPrefectures).toEqual([]);
@@ -114,7 +115,7 @@ describe('useCheckBoxのテスト', () => {
 		);
 
 		act(() => {
-			prefectureIds = result.current.onChange(changeEventMock);
+			prefectureIds = result.current.actions.onChange(changeEventMock);
 		});
 
 		expect(prefectureIds).toEqual([3]);

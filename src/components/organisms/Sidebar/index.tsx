@@ -8,7 +8,7 @@ const Sidebar: FC<SidebarType> = ({
 	handleChangeCheckBoxState,
 	...props
 }: SidebarType) => {
-	const { checkedPrefectures, prefectureNames, onChange } =
+	const { checkedPrefectures, prefectureNames, actions } =
 		usePrefecturesCheckBox(prefectures);
 
 	return (
@@ -16,7 +16,7 @@ const Sidebar: FC<SidebarType> = ({
 			prefectures={prefectureNames}
 			checkedPrefectures={checkedPrefectures}
 			handleCheckBoxClick={(event) =>
-				handleChangeCheckBoxState(onChange(event))
+				handleChangeCheckBoxState(actions.onChange(event))
 			}
 			{...props}
 		/>
