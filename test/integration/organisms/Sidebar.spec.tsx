@@ -4,11 +4,13 @@ import {
 	renderHook,
 	screen,
 	act,
+	waitFor,
 } from '@testing-library/react';
 import Sidebar from 'components/organisms/Sidebar';
 import '@testing-library/jest-dom';
 import { PrefectureType } from 'types';
 import { usePrefecturesApi } from 'hooks/api/prefecture/usePrefecturesApi';
+import { local } from 'utils/local';
 
 describe('oragnisms/Sidebarのテスト', () => {
 	let prefecturesMock: PrefectureType[] = [];
@@ -38,6 +40,21 @@ describe('oragnisms/Sidebarのテスト', () => {
 
 		const container = screen.queryByText('都道府県');
 		expect(container).toHaveTextContent('都道府県');
+	});
+
+	it('地方の文字が画面上に反映されること', () => {
+		act(() => {
+			render(
+				<Sidebar
+					className=''
+					prefectures={prefecturesMock}
+					handleChangeCheckBoxState={() => jest.fn()}
+				/>,
+			);
+		});
+
+		const container = screen.queryByText('地方');
+		expect(container).toHaveTextContent('地方');
 	});
 
 	it('apiから取得してきた都道府県のデータ全てが画面上に反映されること', () => {
@@ -135,6 +152,55 @@ describe('oragnisms/Sidebarのテスト', () => {
 		allCheckBox = screen.getAllByRole('checkbox', { hidden: true });
 		allCheckBox.map((checkbox) => {
 			expect(checkbox).not.toBeChecked();
+		});
+	});
+
+	it('地方トグルボタンクリック時にhandleCheckBoxClickが実行されること', () => {
+		const handleCheckBoxClickMock = jest.fn();
+
+		act(() => {
+			render(
+				<Sidebar
+					className=''
+					prefectures={prefecturesMock}
+					handleChangeCheckBoxState={() => handleCheckBoxClickMock()}
+				/>,
+			);
+		});
+		screen.debug();
+		const container = screen.getByText('東北地方');
+
+		act(() => {
+			fireEvent.click(container);
+		});
+
+		expect(handleCheckBoxClickMock).toHaveBeenCalled();
+	});
+
+	it('地方トグルボタンクリック時に対象地方の都道府県がチェック状態になること', async () => {
+		act(() => {
+			render(
+				<Sidebar
+					className=''
+					prefectures={prefecturesMock}
+					handleChangeCheckBoxState={() => jest.fn()}
+				/>,
+			);
+		});
+
+		const container = screen.getByText('東北地方');
+
+		act(() => {
+			fireEvent.click(container);
+		});
+
+		const touhoku_prefectures = prefecturesMock.filter((d) =>
+			local['tohoku'].includes(d.prefName),
+		);
+
+		touhoku_prefectures.map((pref) => {
+			const checkboxRole = screen.getByLabelText(pref.prefName);
+			expect(checkboxRole).toBeChecked();
 		});
 	});
 });
