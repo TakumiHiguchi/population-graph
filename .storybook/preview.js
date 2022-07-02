@@ -1,6 +1,7 @@
 import * as NextImage from 'next/image';
 import { backGroundColor } from '../src/styles';
 import '../src/styles/global.css';
+import 'ress';
 
 export const parameters = {
 	actions: { argTypesRegex: '^on[A-Z].*' },

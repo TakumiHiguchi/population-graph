@@ -28,3 +28,24 @@ export const borderRadiusSize = {
 		small: '8px',
 	},
 };
+
+export const layoutSize = {
+	pc: {
+		sidebar: {
+			width: '440px',
+		},
+		headerHeight: '50px',
+	},
+	tab: {
+		chart: {
+			height: '56.25vw',
+		},
+		headerHeight: '50px',
+	},
+	sp: {
+		chart: {
+			height: '300px',
+		},
+		headerHeight: '50px',
+	},
+};
