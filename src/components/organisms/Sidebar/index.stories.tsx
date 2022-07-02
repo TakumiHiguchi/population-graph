@@ -2,6 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { css } from '@emotion/css';
 import Component from './index';
 import { usePrefecturesApi } from 'hooks/api/prefecture/usePrefecturesApi';
+import { PaddingWrapper } from 'components/atoms/StorybookPaddingWrapper';
 
 export default {
 	title: 'organisms/Sidebar',
@@ -16,9 +17,11 @@ const Template: ComponentStory<typeof Component> = (args) => {
 
 	if (!loading && !isError) {
 		return (
-			<div className={css(`height: 100%`)}>
-				<Component {...args} prefectures={data} />
-			</div>
+			<PaddingWrapper>
+				<div className={css(`height: 100%`)}>
+					<Component {...args} prefectures={data} />
+				</div>
+			</PaddingWrapper>
 		);
 	} else {
 		return <div className={css(`height: 100%`)}></div>;

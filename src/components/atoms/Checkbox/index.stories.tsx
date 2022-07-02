@@ -1,6 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { useCheckBox } from 'hooks/useInput';
 import Component from 'components/atoms/Checkbox/index';
+import { PaddingWrapper } from '../StorybookPaddingWrapper';
 
 export default {
 	title: 'atoms/Checkbox',
@@ -9,7 +10,11 @@ export default {
 
 const Template: ComponentStory<typeof Component> = (args) => {
 	const checkbox = useCheckBox(false, '', 'テスト', false);
-	return <Component {...args} {...checkbox} />;
+	return (
+		<PaddingWrapper>
+			<Component {...args} {...checkbox} />
+		</PaddingWrapper>
+	);
 };
 
 export const Checkbox = Template.bind({});
