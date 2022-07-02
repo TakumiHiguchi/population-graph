@@ -26,6 +26,12 @@ const Sidebar: FC<SidebarType> = ({
 			allClear={() =>
 				handleChangeCheckBoxState(actions.setCheckedPrefectures([]))
 			}
+			append={(prefecture) =>
+				handleChangeCheckBoxState(actions.appendCheckedPrefectures(prefecture))
+			}
+			remove={(prefecture) =>
+				handleChangeCheckBoxState(actions.removeCheckedPrefectures(prefecture))
+			}
 			{...props}
 		/>
 	);
