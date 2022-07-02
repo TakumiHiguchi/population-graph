@@ -28,6 +28,7 @@ module.exports = {
 					hooks: path.resolve(__dirname, '../src/hooks'),
 					styles: path.resolve(__dirname, '../src/styles'),
 					lib: path.resolve(__dirname, '../src/lib'),
+					utils: path.resolve(__dirname, '../src/utils'),
 				},
 			},
 		};
