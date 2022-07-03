@@ -1,4 +1,4 @@
-import { RefObject, useMemo } from 'react';
+import { useMemo } from 'react';
 import { PopulationCompositionType, PrefectureType } from 'types';
 import {
 	chart,
