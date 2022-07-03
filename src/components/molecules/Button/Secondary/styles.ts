@@ -1,4 +1,5 @@
-import { backGroundColor, borderRadiusSize, textColor } from 'styles';
+import { backGroundColor, textColor } from 'styles/color';
+import { borderRadiusSize } from 'styles/size';
 
 export const buttonSecondary = `
   background: ${backGroundColor.primary};

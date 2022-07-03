@@ -2,7 +2,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import LocalPicker from 'components/organisms/LocalPicker';
 import '@testing-library/jest-dom';
 import { localNames } from 'utils/local';
-import { backGroundColor } from 'styles';
+import { backGroundColor } from 'styles/color';
 
 describe('organisms/localPickerのテスト', () => {
 	it('全ての地方が表示されていること', () => {

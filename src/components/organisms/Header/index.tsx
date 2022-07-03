@@ -1,6 +1,7 @@
 import { css } from '@emotion/css';
 import Text from 'components/atoms/Text';
-import { layoutSize } from 'styles';
+import { layoutSize } from 'styles/size';
+
 import { headerWrapper, headerH1 } from './styles';
 const Header = () => {
 	return (

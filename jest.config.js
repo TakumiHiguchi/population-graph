@@ -17,7 +17,7 @@ const customJestConfig = {
 		'^types/(.*)$': '<rootDir>/src/types/$1',
 		'^lib/(.*)$': '<rootDir>/src/lib/$1',
 		'^mock/(.*)$': '<rootDir>/src/mock/$1',
-		'^styles': '<rootDir>/src/styles',
+		'^styles/(.*)$': '<rootDir>/src/styles/$1',
 	},
 };
 

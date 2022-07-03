@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { PaddingWrapper } from 'components/atoms/StorybookPaddingWrapper';
 import React from 'react';
-import { backGroundColor } from 'styles';
+import { backGroundColor } from 'styles/color';
 
 import { Toggle as Button } from './index';
 

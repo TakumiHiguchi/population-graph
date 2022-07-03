@@ -1,9 +1,6 @@
-import {
-	backGroundColor,
-	borderRadiusSize,
-	fluffyBackGroundColorTrans,
-	textColor,
-} from 'styles';
+import { fluffyBackGroundColorTrans } from 'styles/animation';
+import { backGroundColor } from 'styles/color';
+import { borderRadiusSize } from 'styles/size';
 
 export const buttonToggle = (
 	toggle: boolean,

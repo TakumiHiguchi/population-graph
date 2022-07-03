@@ -12,7 +12,7 @@ import {
 	prefectureAllSelecterButton,
 } from './styles';
 import { SidebarPresenterType } from './types';
-import { textColor } from 'styles';
+import { textColor } from 'styles/color';
 
 const SidebarPresenter: FC<SidebarPresenterType> = ({
 	className,

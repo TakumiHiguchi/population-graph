@@ -1,10 +1,6 @@
-import {
-	backGroundColor,
-	borderRadiusSize,
-	layoutSize,
-	mediaQuery,
-	paddingSize,
-} from 'styles';
+import { backGroundColor } from 'styles/color';
+import { mediaQuery } from 'styles/global';
+import { borderRadiusSize, layoutSize, paddingSize } from 'styles/size';
 
 export const ChartWrapper = `
   position: relative;

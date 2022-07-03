@@ -6,7 +6,7 @@ import ReactLoading from 'react-loading';
 import React, { FC } from 'react';
 import { ChartWrapper, loadingArea, loadingSpinner } from './styles';
 import { ChartPresenterType } from './types';
-import { backGroundColor } from 'styles';
+import { backGroundColor } from 'styles/color';
 import Text from 'components/atoms/Text';
 
 const ChartPresenter: FC<ChartPresenterType> = ({

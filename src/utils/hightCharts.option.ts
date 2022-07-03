@@ -8,7 +8,8 @@ import {
 	PlotOptions,
 	ResponsiveOptions,
 } from 'highcharts';
-import { backGroundColor, fonts } from 'styles';
+import { backGroundColor } from 'styles/color';
+import { fonts } from 'styles/font';
 
 export const chart: ChartOptions = {
 	backgroundColor: backGroundColor.primary,

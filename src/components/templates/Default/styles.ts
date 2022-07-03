@@ -1,10 +1,6 @@
-import {
-	backGroundColor,
-	layoutSize,
-	mediaQuery,
-	paddingSize,
-	textSize,
-} from 'styles';
+import { backGroundColor } from 'styles/color';
+import { mediaQuery } from 'styles/global';
+import { layoutSize, paddingSize, textSize } from 'styles/size';
 
 export const defaultTemplateWrapper = `
   position: relative;
