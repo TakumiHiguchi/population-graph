@@ -8,6 +8,7 @@ const customJestConfig = {
 	moduleDirectories: ['node_modules', '<rootDir>/'],
 	testEnvironment: 'jest-environment-jsdom',
 	setupFilesAfterEnv: ['./test/jest.setup.ts'],
+	globalSetup: './test/setupEnv.ts',
 	moduleNameMapper: {
 		'^components/(.*)$': '<rootDir>/src/components/$1',
 		'^pages/(.*)$': '<rootDir>/src/pages/$1',
@@ -16,7 +17,7 @@ const customJestConfig = {
 		'^types/(.*)$': '<rootDir>/src/types/$1',
 		'^lib/(.*)$': '<rootDir>/src/lib/$1',
 		'^mock/(.*)$': '<rootDir>/src/mock/$1',
-		'^styles': '<rootDir>/src/styles',
+		'^styles/(.*)$': '<rootDir>/src/styles/$1',
 	},
 };
 

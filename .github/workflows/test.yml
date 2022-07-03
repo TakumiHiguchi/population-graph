@@ -19,6 +19,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: create env file
+        run: |
+          touch .env
+          echo NEXT_PUBLIC_API_KEY=test >> .env
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
