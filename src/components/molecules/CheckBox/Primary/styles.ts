@@ -51,7 +51,7 @@ export const checkBox = `
     &:after {
       display: block;
       position: absolute;
-      top: 0;
+      top: 0.05em;
       bottom: 0.15em;
       left: calc(${paddingSize.pc.small} + 0.38em);
       width: 0.25em;
