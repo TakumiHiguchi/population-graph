@@ -23,10 +23,6 @@ describe('pages/indexのテスト', () => {
 	});
 
 	it('ローディング時ダミーサイドバーが表示されること', async () => {
-		const { result } = renderHook(() => usePrefecturesApi('test'));
-
-		await waitFor(() => expect(result.current.data.length > 0).toBeTruthy());
-
 		act(() => {
 			render(<Home />);
 		});
