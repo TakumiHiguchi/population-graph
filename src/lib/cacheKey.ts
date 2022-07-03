@@ -3,5 +3,7 @@ export const generateCacheKey = (
 	apiKey: string,
 	id?: number,
 ) => {
-	return `${apiName}-${apiKey.slice(0, 5)}-${id || 'index'}`;
+	return `${apiName}-${apiKey.slice(0, 5)}-${
+		typeof id != 'undefined' ? id : 'index'
+	}`;
 };
