@@ -1,10 +1,6 @@
-import {
-	backGroundColor,
-	textColor,
-	borderRadiusSize,
-	paddingSize,
-	fluffyBackGroundColorTrans,
-} from 'styles';
+import { fluffyBackGroundColorTrans } from 'styles/animation';
+import { backGroundColor, textColor } from 'styles/color';
+import { borderRadiusSize, paddingSize } from 'styles/size';
 
 export const checkBoxWrapper = `
   display: inline-block;

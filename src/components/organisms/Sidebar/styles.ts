@@ -1,11 +1,6 @@
-import {
-	backGroundColor,
-	borderRadiusSize,
-	layoutSize,
-	mediaQuery,
-	paddingSize,
-	scrollBarHide,
-} from 'styles';
+import { backGroundColor } from 'styles/color';
+import { mediaQuery, scrollBarHide } from 'styles/global';
+import { borderRadiusSize, layoutSize, paddingSize } from 'styles/size';
 
 export const sidebarWrapper = `
   position: relative;

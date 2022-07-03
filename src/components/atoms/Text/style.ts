@@ -1,6 +1,7 @@
 import { TextType } from './types';
 import { PickStyleTypes } from 'types';
-import { fonts, textColor } from 'styles';
+import { textColor } from 'styles/color';
+import { fonts } from 'styles/font';
 
 export const textWrapper = ({
 	lineHeight = '1.5em',

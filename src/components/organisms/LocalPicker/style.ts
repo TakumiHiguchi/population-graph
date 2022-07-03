@@ -1,4 +1,4 @@
-import { paddingSize } from 'styles';
+import { paddingSize } from 'styles/size';
 
 export const localPickerWrapper = `
   display: grid;

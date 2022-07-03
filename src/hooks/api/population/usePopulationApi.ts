@@ -1,5 +1,5 @@
 import useSWRInfinite from 'swr/infinite';
-import { getPopulation } from 'lib/api';
+import { getPopulation } from 'lib/api/population';
 import {
 	PopulationCompositionType,
 	ResasAPIFaildResponseType,

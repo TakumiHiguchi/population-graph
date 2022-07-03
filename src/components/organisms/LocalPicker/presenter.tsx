@@ -2,9 +2,10 @@ import { FC } from 'react';
 import { LocalPickerPresenterType } from './types';
 import * as Button from 'components/molecules/Button';
 import Text from 'components/atoms/Text';
-import { backGroundColor } from 'styles';
+
 import { css } from '@emotion/css';
 import { localPickerWrapper } from './style';
+import { backGroundColor } from 'styles/color';
 
 const LocalPickerPresenter: FC<LocalPickerPresenterType> = ({
 	localNames,

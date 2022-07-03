@@ -1,4 +1,4 @@
-import { getPopulation } from 'lib/api';
+import { getPopulation } from 'lib/api/population';
 import { isResasAPIFaildResponseType } from 'lib/typeGuard/api';
 
 describe('populationAPIのテスト', () => {
