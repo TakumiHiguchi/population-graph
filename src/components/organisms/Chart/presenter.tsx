@@ -13,7 +13,6 @@ import {
 import { ChartPresenterType } from './types';
 import { backGroundColor, textColor } from 'styles/color';
 import Text from 'components/atoms/Text';
-import Link from 'components/atoms/Link';
 
 const ChartPresenter: FC<ChartPresenterType> = ({
 	options,

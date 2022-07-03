@@ -4,7 +4,6 @@ import {
 	renderHook,
 	screen,
 	act,
-	waitFor,
 } from '@testing-library/react';
 import Sidebar from 'components/organisms/Sidebar';
 import '@testing-library/jest-dom';
