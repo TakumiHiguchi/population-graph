@@ -8,13 +8,12 @@ import { generateCacheKey } from 'lib/cacheKey';
 export const usePrefecturesApi = (apiKey: string) => {
 	const empty: PrefectureType[] = [];
 
-	if (apiKey == '') return { data: empty, loading: true, isError: false };
-
 	const { data, error } = useSWRImmutable(
 		generateCacheKey('prefectures', apiKey),
 		async () => await getPrefectures(apiKey),
 	);
 
+	if (apiKey == '') return { data: empty, loading: true, isError: false };
 	if (!data) return { data: empty, loading: true, isError: false };
 
 	if (error || isResasAPIFaildResponseType(data)) {
