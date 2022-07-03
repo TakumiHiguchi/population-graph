@@ -15,7 +15,7 @@ const ChartPresenter: FC<ChartPresenterType> = ({
 	nowLoadingDataCount,
 }: ChartPresenterType) => {
 	return (
-		<div className={css(ChartWrapper)}>
+		<div className={css(ChartWrapper)} data-testid='chart'>
 			<div className={css(loadingArea(loading && nowLoadingDataCount > 0))}>
 				<ReactLoading
 					className={css(loadingSpinner)}
