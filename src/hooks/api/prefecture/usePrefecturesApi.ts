@@ -1,5 +1,5 @@
 import useSWRImmutable from 'swr/immutable';
-import { getPrefectures } from 'lib/api';
+import { getPrefectures } from 'lib/api/prefecture';
 import { PrefectureType } from 'types';
 import { isResasAPIFaildResponseType } from 'lib/typeGuard/api';
 import { httpErrorHandler } from 'lib/httpErrorHandler';

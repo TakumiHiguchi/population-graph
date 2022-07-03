@@ -1,4 +1,4 @@
-import { getPrefectures } from 'lib/api';
+import { getPrefectures } from 'lib/api/prefecture';
 import { isResasAPIFaildResponseType } from 'lib/typeGuard/api';
 
 describe('prefectureAPIのテスト', () => {

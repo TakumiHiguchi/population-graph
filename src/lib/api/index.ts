@@ -1,8 +1,5 @@
 import { ResasAPIResponseType } from 'types';
 
-export * from './prefecture';
-export * from './population';
-
 export const removeResasAPIResponseType = <T>(
 	data: {
 		[k: string]: ResasAPIResponseType<T>;
