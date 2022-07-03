@@ -15,7 +15,8 @@ export const usePopulaionApi = (
 	fetchInterval: number = 100,
 ) => {
 	const getKey = (pageIndex: number) => {
-		if (prefectureIds.length === pageIndex) return null;
+		if (prefectureIds.length === pageIndex || typeof pageIndex == 'undefined')
+			return null;
 		return generateCacheKey('population', apiKey, prefectureIds[pageIndex]);
 	};
 
