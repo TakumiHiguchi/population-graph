@@ -1,5 +1,5 @@
 import { renderHook, waitFor, act } from '@testing-library/react';
-import { usePopulaionDatas } from 'pages/usePopulationDatas';
+import { usePopulaionDatas } from 'hooks/pages/usePopulationDatas';
 
 describe('usePopulationDataのテスト', () => {
 	it('setPopulationDatasでpopulationデータを取得できること', async () => {

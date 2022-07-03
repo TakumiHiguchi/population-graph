@@ -3,7 +3,7 @@ import DefaultTemplate from 'components/templates/Default';
 import Chart from 'components/organisms/Chart';
 import Sidebar from 'components/organisms/Sidebar';
 import { usePrefecturesApi } from 'hooks/api/prefecture/usePrefecturesApi';
-import { usePopulaionDatas } from './usePopulationDatas';
+import { usePopulaionDatas } from '../hooks/pages/usePopulationDatas';
 
 const Home: NextPage = () => {
 	const apiKey = process.env.NEXT_PUBLIC_API_KEY

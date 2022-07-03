@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Component from './index';
 import { usePrefecturesApi } from 'hooks/api/prefecture/usePrefecturesApi';
 import { PaddingWrapper } from 'components/atoms/StorybookPaddingWrapper';
-import { usePopulaionDatas } from 'pages/usePopulationDatas';
+import { usePopulaionDatas } from 'hooks/pages/usePopulationDatas';
 import { useEffect } from 'react';
 
 export default {
