@@ -41,7 +41,6 @@ export const usePopulaionApi = (
 				| ResasAPIResponseType<PopulationCompositionType>
 				| ResasAPIFaildResponseType;
 		}[],
-		swrError: any,
 	) => {
 		/*
 			Union型の配列でfilter時に型を判別してくれないため
@@ -53,12 +52,12 @@ export const usePopulaionApi = (
 			.map((d) => Object.values(d)[0]) as ResasAPIFaildResponseType[];
 
 		if (errors.length > 0) httpErrorHandler(errors[0]);
-		return swrError || errors.length > 0;
+		return errors.length > 0;
 	};
 
+	if (error) return { data: [], loading: false, isError: true };
 	if (!data) return { data: [], loading: true, isError: false };
-	if (errorHandle(data, error))
-		return { data: [], loading: false, isError: true };
+	if (errorHandle(data)) return { data: [], loading: false, isError: true };
 
 	/* Union型の配列でerrorHandleで型を判別してくれないためasを使用 */
 	const _data = data as {
