@@ -49,12 +49,10 @@ export const prefectureAllSelecterButton = `
 `;
 
 export const prefectureCreatedWrapper = `
-  position: absolute;
-  right: ${paddingSize.pc.normal1};
-  bottom: ${paddingSize.pc.normal1};
+  padding: ${paddingSize.pc.verySmall} 0;
+  text-align: right;
   ${mediaQuery.tab} {
     position: static;
     padding: ${paddingSize.sp.verySmall} 0;
-    text-align: right;
   }
 `;
