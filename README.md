@@ -1,34 +1,98 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 都道府県別総人口推移グラフ
 
-## Getting Started
+[RESAS API](https://opendata.resas-portal.go.jp/)から都道府県と各都道府県に対する人口推移を取得し、表示するアプリケーションです。
 
-First, run the development server:
+## 技術スタック
+
+- Next.js
+- typescript
+- MSW (Mock Service Worker)
+- SWR
+- storybook
+- jest
+- react-testing-library
+- eslint
+- prettier
+- lint-staged
+
+## 初めに
 
 ```bash
-npm run dev
-# or
-yarn dev
+ yarn install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+.env.local と.env.test.local に RESAS APIKey を追加
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```
+ .env.local and .env.test.local
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+ NEXT_PUBLIC_API_KEY=[your api key]
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### 開発環境
 
-## Learn More
+```bash
+ yarn dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+[http://localhost:3000/](http://localhost:3000/)に開発サーバーが起動します。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### storybook
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+ yarn storybook
+```
 
-## Deploy on Vercel
+[http://localhost:6006](http://localhost:6006)に storybook が起動します。
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 開発
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### lint-staged
+
+commit 時に以下のコマンドを実行しています。
+bash を使用しているため、bash をインストールしてください。
+
+```bash
+prettier --write --loglevel=warn '*/**/*.{js,jsx,ts,tsx,html,gql,graphql,json}'
+next lint . --fix
+bash -c 'tsc --noEmit'
+```
+
+### 開発の進め方
+
+git flow に則って開発してください。
+
+### コンポーネント管理
+
+atomic design を採用しています。 以下のように、各コンポーネントのフォルダ内に view、storybook、style、type を含めてください。
+
+molecules はロジックを含む場合、index.tsx と presenter.tsx に分け、view は presenter に、ロジックはカスタムフックを切って index で読み込むようにしてください。
+
+```
+src/components
+  - atoms
+    - xxx
+      - index.tsx
+      - index.stories.ts
+      - styles.ts
+      - types.ts
+```
+
+### スタイリングについて
+
+emotion css を採用しています。
+
+なるべくマジックナンバーを使用せず、src/styles 内にある css 変数を使用してください。
+
+### テストについて
+
+test/内に Unit testing と Integration testing に分けて追加してください。
+
+以下のコマンドでテストを実行できます。
+
+```bash
+yarn jest
+yarn test (watch)
+yarn test:unit (Unitテスト)
+yarn test:integration (Integrationテスト)
+```
