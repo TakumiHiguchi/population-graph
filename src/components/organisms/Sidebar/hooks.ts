@@ -8,12 +8,15 @@ export const usePrefecturesCheckBox = (prefectures: PrefectureType[]) => {
 		[prefectures],
 	);
 
-	const checkedPrefectureIds = (data: string[]) => {
-		const checkedPrefectureHash = prefectures.filter((prefecture) =>
-			data.includes(prefecture.prefName),
-		);
-		return checkedPrefectureHash.map((prefecture) => prefecture.prefCode);
-	};
+	const checkedPrefectureIds = useCallback(
+		(data: string[]) => {
+			const checkedPrefectureHash = prefectures.filter((prefecture) =>
+				data.includes(prefecture.prefName),
+			);
+			return checkedPrefectureHash.map((prefecture) => prefecture.prefCode);
+		},
+		[prefectures],
+	);
 
 	const onChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const value = e.target.value;
@@ -41,7 +44,7 @@ export const usePrefecturesCheckBox = (prefectures: PrefectureType[]) => {
 			_setCheckedPrefectures(next);
 			return checkedPrefectureIds(next);
 		},
-		[checkedPrefectures, prefectureNames],
+		[checkedPrefectures, prefectureNames, checkedPrefectureIds],
 	);
 
 	const removeCheckedPrefectures = useCallback(
@@ -50,7 +53,7 @@ export const usePrefecturesCheckBox = (prefectures: PrefectureType[]) => {
 			_setCheckedPrefectures(next);
 			return checkedPrefectureIds(next);
 		},
-		[checkedPrefectures],
+		[checkedPrefectures, checkedPrefectureIds],
 	);
 
 	const actions = {

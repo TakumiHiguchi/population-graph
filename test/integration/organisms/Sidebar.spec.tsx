@@ -167,7 +167,7 @@ describe('oragnisms/Sidebarのテスト', () => {
 				/>,
 			);
 		});
-		screen.debug();
+
 		const container = screen.getByText('東北地方');
 
 		act(() => {

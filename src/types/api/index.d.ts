@@ -10,3 +10,4 @@ export type ResasAPIFaildResponseType = {
 };
 
 export * from './prefecuture';
+export * from './population';
