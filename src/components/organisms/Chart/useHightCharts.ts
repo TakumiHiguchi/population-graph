@@ -20,7 +20,7 @@ export const useHightCharts = (
 		const totalPopulationDatas = Object.values(populations[0])[0].data[0].data;
 		return {
 			min: totalPopulationDatas[0].year,
-			max: totalPopulationDatas.at(-1)?.year || 2045,
+			max: totalPopulationDatas[totalPopulationDatas.length - 1].year,
 		};
 	}, [populations]);
 

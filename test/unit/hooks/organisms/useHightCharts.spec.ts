@@ -33,6 +33,25 @@ describe('useHightChartsのテスト', () => {
 			useHightCharts(populationMock, prefecturesMock),
 		);
 		expect(Object.keys(result.current.options).length > 0).toBeTruthy();
+
+		const xAxis = result.current.options.xAxis;
+		if (typeof xAxis != 'undefined' && !Array.isArray(xAxis)) {
+			const totalPopulationDatas = Object.values(populationMock[0])[0].data[0]
+				.data;
+			expect(xAxis.min).toBe(totalPopulationDatas[0].year);
+			expect(xAxis.max).toBe(totalPopulationDatas.at(-1)?.year || 2045);
+		}
+	});
+
+	it('populationがから配列の時useHightChartsの戻り値のoptionsが適切であること', () => {
+		const { result } = renderHook(() => useHightCharts([], prefecturesMock));
+		expect(Object.keys(result.current.options).length > 0).toBeTruthy();
+
+		const xAxis = result.current.options.xAxis;
+		if (typeof xAxis != 'undefined' && !Array.isArray(xAxis)) {
+			expect(xAxis.min).toBe(1960);
+			expect(xAxis.max).toBe(2045);
+		}
 	});
 
 	it('useHightChartsの戻り値のseriesが適切であること', () => {
