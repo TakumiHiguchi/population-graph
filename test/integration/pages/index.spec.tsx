@@ -59,20 +59,19 @@ describe('pages/indexのテスト', () => {
 	});
 
 	it('サイドバーのチェックボックスをチェックした時チャートが正しく表示されること', async () => {
-		const text = 'Highcharts.com';
-
 		act(() => {
 			render(<Home />);
-		});
-
-		await waitFor(() => {
-			const container = screen.queryByText(text);
-			expect(container).toHaveTextContent(text);
 		});
 
 		const { result } = renderHook(() => usePrefecturesApi('test'));
 		await waitFor(() => expect(result.current.data.length > 0).toBeTruthy());
 		const prefecturesMock = result.current.data;
+
+		await waitFor(() =>
+			expect(screen.queryByText(prefecturesMock[0].prefName)).toHaveTextContent(
+				prefecturesMock[0].prefName,
+			),
+		);
 
 		const container = screen.getByText(prefecturesMock[0].prefName);
 		act(() => {
@@ -86,20 +85,19 @@ describe('pages/indexのテスト', () => {
 	});
 
 	it('サイドバーの地方ボタンをクリックした時チャートが正しく表示されること', async () => {
-		const text = 'Highcharts.com';
-
 		act(() => {
 			render(<Home />);
-		});
-
-		await waitFor(() => {
-			const container = screen.queryByText(text);
-			expect(container).toHaveTextContent(text);
 		});
 
 		const { result } = renderHook(() => usePrefecturesApi('test'));
 		await waitFor(() => expect(result.current.data.length > 0).toBeTruthy());
 		const prefecturesMock = result.current.data;
+
+		await waitFor(() =>
+			expect(screen.queryByText(prefecturesMock[0].prefName)).toHaveTextContent(
+				prefecturesMock[0].prefName,
+			),
+		);
 
 		const container = screen.getByText('東北地方');
 
