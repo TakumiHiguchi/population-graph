@@ -4,10 +4,16 @@ import HighchartsReact from 'highcharts-react-official';
 import highchartsAccessibility from 'highcharts/modules/accessibility';
 import ReactLoading from 'react-loading';
 import React, { FC } from 'react';
-import { ChartWrapper, loadingArea, loadingSpinner } from './styles';
+import {
+	ChartWrapper,
+	loadingArea,
+	loadingSpinner,
+	sourceTextWrapper,
+} from './styles';
 import { ChartPresenterType } from './types';
-import { backGroundColor } from 'styles/color';
+import { backGroundColor, textColor } from 'styles/color';
 import Text from 'components/atoms/Text';
+import Link from 'components/atoms/Link';
 
 const ChartPresenter: FC<ChartPresenterType> = ({
 	options,
@@ -40,6 +46,13 @@ const ChartPresenter: FC<ChartPresenterType> = ({
 				highcharts={Highcharts}
 				options={{ ...options, series: series }}
 			/>
+			<div className={css(sourceTextWrapper)}>
+				<Text
+					text='出典：RESAS（地域経済分析システム）'
+					color={textColor.secondary}
+					fontSize='0.6em'
+				/>
+			</div>
 		</div>
 	);
 };

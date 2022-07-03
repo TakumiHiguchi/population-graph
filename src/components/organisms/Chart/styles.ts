@@ -33,3 +33,17 @@ export const loadingArea = (isLoading: boolean) => `
 export const loadingSpinner = `
   margin: 0 0.6em;
 `;
+
+export const sourceTextWrapper = `
+  position: absolute;
+  left: ${paddingSize.pc.normal1};
+  bottom: ${paddingSize.pc.normal1};
+  ${mediaQuery.tab} {
+    left: ${paddingSize.tab.normal1};
+    bottom: ${paddingSize.tab.normal1};
+  }
+  ${mediaQuery.sp} {
+    left: ${paddingSize.sp.normal1};
+    bottom: ${paddingSize.sp.normal1};
+  }
+`;
