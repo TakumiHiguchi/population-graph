@@ -31,6 +31,7 @@ export const usePopulaionApi = (
 		{
 			revalidateIfStale: false,
 			initialSize: 47,
+			onError: (err) => httpErrorHandler(err),
 		},
 	);
 
@@ -50,7 +51,7 @@ export const usePopulaionApi = (
 		const errors = data
 			.filter((d) => isResasAPIFaildResponseType(Object.values(d)[0]))
 			.map((d) => Object.values(d)[0]) as ResasAPIFaildResponseType[];
-		if (swrError) httpErrorHandler(swrError);
+
 		if (errors.length > 0) httpErrorHandler(errors[0]);
 		return swrError || errors.length > 0;
 	};

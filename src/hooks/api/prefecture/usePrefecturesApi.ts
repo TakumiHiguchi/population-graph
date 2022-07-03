@@ -11,13 +11,13 @@ export const usePrefecturesApi = (apiKey: string) => {
 	const { data, error } = useSWRImmutable(
 		generateCacheKey('prefectures', apiKey),
 		async () => await getPrefectures(apiKey),
+		{ onError: (err) => httpErrorHandler(err) },
 	);
 
 	if (apiKey == '') return { data: empty, loading: true, isError: false };
 	if (!data) return { data: empty, loading: true, isError: false };
 
 	if (error || isResasAPIFaildResponseType(data)) {
-		if (error) httpErrorHandler(error);
 		if (isResasAPIFaildResponseType(data)) httpErrorHandler(data);
 		return { data: empty, loading: false, isError: true };
 	}
