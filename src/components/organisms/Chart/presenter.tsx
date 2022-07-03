@@ -1,6 +1,7 @@
 import { css } from '@emotion/css';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
+import highchartsAccessibility from 'highcharts/modules/accessibility';
 import ReactLoading from 'react-loading';
 import React, { FC } from 'react';
 import { ChartWrapper, loadingArea, loadingSpinner } from './styles';
@@ -14,6 +15,9 @@ const ChartPresenter: FC<ChartPresenterType> = ({
 	series,
 	nowLoadingDataCount,
 }: ChartPresenterType) => {
+	if (typeof window !== `undefined`) {
+		highchartsAccessibility(Highcharts);
+	}
 	return (
 		<div className={css(ChartWrapper)} data-testid='chart'>
 			<div className={css(loadingArea(loading && nowLoadingDataCount > 0))}>
