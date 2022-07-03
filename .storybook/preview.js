@@ -1,5 +1,5 @@
 import * as NextImage from 'next/image';
-import { backGroundColor } from '../src/styles';
+import { backGroundColor } from '../src/styles/color';
 import '../src/styles/global.css';
 import 'ress';
 

@@ -22,6 +22,17 @@ describe('pages/indexのテスト', () => {
 		expect(container).toHaveTextContent(text);
 	});
 
+	it('ローディング時ダミーサイドバーが表示されること', async () => {
+		act(() => {
+			render(<Home />);
+		});
+
+		await waitFor(() => {
+			const containers = screen.getAllByTestId('checkbox-dummy-primary');
+			expect(containers.length > 0).toBeTruthy();
+		});
+	});
+
 	it('サイドバーが画面上に表示されていること', async () => {
 		const { result } = renderHook(() => usePrefecturesApi('test'));
 
