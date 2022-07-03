@@ -5,6 +5,7 @@ import Sidebar from 'components/organisms/Sidebar';
 import { usePrefecturesApi } from 'hooks/api/prefecture/usePrefecturesApi';
 import { usePopulaionDatas } from '../hooks/pages/usePopulationDatas';
 import Head from 'components/molecules/Head';
+import DummySidebar from 'components/organisms/DummySidebar';
 
 const Home: NextPage = () => {
 	const apiKey = process.env.NEXT_PUBLIC_API_KEY
@@ -35,6 +36,7 @@ const Home: NextPage = () => {
 					prefectures={prefectureApi.data}
 				/>
 			)}
+			{(prefectureApi.loading || prefectureApi.isError) && <DummySidebar />}
 		</DefaultTemplate>
 	);
 };
