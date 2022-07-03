@@ -88,4 +88,20 @@ describe('organisms/Chartのテスト', () => {
 		const container = screen.queryByText(text);
 		expect(container).toHaveTextContent(text);
 	});
+
+	it('出典：RESAS（地域経済分析システム）という文字が画面上に反映されること', () => {
+		act(() => {
+			render(
+				<Chart
+					populations={populationMock}
+					prefectures={prefecturesMock}
+					loading={true}
+					nowLoadingDataCount={34}
+				/>,
+			);
+		});
+
+		const container = screen.getByTestId('chart');
+		expect(container).toHaveTextContent('出典：RESAS（地域経済分析システム）');
+	});
 });
