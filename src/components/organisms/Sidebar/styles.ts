@@ -47,3 +47,14 @@ export const prefectureAllSelecterButton = `
   padding: 0.05em 0.5em;
   margin: 0 0.2em;
 `;
+
+export const prefectureCreatedWrapper = `
+  position: absolute;
+  right: ${paddingSize.pc.normal1};
+  bottom: ${paddingSize.pc.normal1};
+  ${mediaQuery.tab} {
+    position: static;
+    padding: ${paddingSize.sp.verySmall} 0;
+    text-align: right;
+  }
+`;

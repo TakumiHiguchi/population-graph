@@ -10,9 +10,11 @@ import {
 	heddingWrapper,
 	prefectureH2,
 	prefectureAllSelecterButton,
+	prefectureCreatedWrapper,
 } from './styles';
 import { SidebarPresenterType } from './types';
 import { textColor } from 'styles/color';
+import Link from 'components/atoms/Link';
 
 const SidebarPresenter: FC<SidebarPresenterType> = ({
 	className,
@@ -71,6 +73,16 @@ const SidebarPresenter: FC<SidebarPresenterType> = ({
 				append={append}
 				remove={remove}
 			/>
+			<div className={css(prefectureCreatedWrapper)}>
+				<Text text='created by ' color={textColor.secondary} fontSize='0.8em' />
+				<Link href='https://takumihiguchi.portfolio.branchwith.jp/'>
+					<Text
+						text='TakumiHiguchi'
+						color={textColor.secondary}
+						fontSize='0.8em'
+					/>
+				</Link>
+			</div>
 		</aside>
 	);
 };

@@ -203,4 +203,21 @@ describe('oragnisms/Sidebarのテスト', () => {
 			expect(checkboxRole).toBeChecked();
 		});
 	});
+
+	it('created by TakumiHiguchiという文字が画面上に反映されること', () => {
+		act(() => {
+			render(
+				<Sidebar
+					className=''
+					prefectures={prefecturesMock}
+					handleChangeCheckBoxState={() => jest.fn()}
+				/>,
+			);
+		});
+
+		const container = screen.getByText('created by');
+		expect(container).toHaveTextContent('created by');
+		const container1 = screen.getByText('TakumiHiguchi');
+		expect(container1).toHaveTextContent('TakumiHiguchi');
+	});
 });
